@@ -10,5 +10,5 @@ data class RecipeResponseDto(
     @SerializedName("url_image")
     val urlImage: String,
     @SerializedName("ingredients")
-    val ingredients: List<String>,
+    val ingredients: List<String>
 )

@@ -1,4 +1,4 @@
-package com.example.data.datasource
+package com.example.data.datasource.remote
 
 import com.example.common.Either
 import com.example.common.ErrorEntity

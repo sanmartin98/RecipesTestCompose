@@ -12,8 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import com.example.domain.model.LocationRecipe
-import com.example.recipestest.ui.screen.common.ErrorMessage
 import com.example.recipestest.ui.screen.common.ArrowBackIcon
+import com.example.recipestest.ui.screen.common.ErrorMessage
 import com.example.recipestest.ui.screen.common.LoadingProgressIndicator
 import com.example.recipestest.ui.theme.RecipesTestTheme
 

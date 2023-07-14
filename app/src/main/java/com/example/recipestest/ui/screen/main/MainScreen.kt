@@ -4,9 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -17,11 +15,11 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import com.example.domain.model.Recipe
+import com.example.recipestest.R
 import com.example.recipestest.ui.screen.common.ErrorMessage
 import com.example.recipestest.ui.screen.common.LoadingProgressIndicator
 import com.example.recipestest.ui.screen.common.SearchView
 import com.example.recipestest.ui.theme.RecipesTestTheme
-import com.example.recipestest.R
 
 @Composable
 fun MainScreen(

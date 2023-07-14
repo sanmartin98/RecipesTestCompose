@@ -1,12 +1,9 @@
 package com.example.di.thirdparty
 
 import com.example.data.commons.Urls
-import com.example.data.datasource.IRemoteRecipeDataSource
+import com.example.data.datasource.remote.IRemoteRecipeDataSource
 import com.example.data.datasource.remote.RemoteRecipeDataSource
 import com.example.data.remote.service.RecipeService
-import com.example.data.repository.RecipeRepository
-import com.example.domain.repository.IRecipeRepository
-import com.example.domain.usecase.GetRecipesUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -62,19 +59,3 @@ object RetrofitModule {
         return RemoteRecipeDataSource(recipeService)
     }
 }
-
-    /*@Singleton
-    @Provides
-    fun providesRecipeRepository(
-        remoteRecipeDataSource: IRemoteRecipeDataSource
-    ): IRecipeRepository {
-        return RecipeRepository(remoteRecipeDataSource)
-    }
-
-    @Singleton
-    @Provides
-    fun providesGetRecipesUseCase(
-        recipeRepository: IRecipeRepository
-    ): GetRecipesUseCase {
-        return GetRecipesUseCase(recipeRepository)
-    }*/
