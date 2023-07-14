@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Recipes App</string>}
+    <string name="ingredients_title">Ingredients:</string>
+    <string name="back_icon_description">Go to previous screen</string>
+    <string name="search">Search</string>
+
+    <!--Errors -->
+    <string name="recipe_not_found">We found no recipe.</string>
+    <string name="recipe_internet_error">Please review your internet connection.</string>
+    <string name="recipe_error_unauthorized">You are not authorized to get recipe.</string>
+    <string name="recipe_error_no_response">No recipes available</string>
+    <string name="recipe_error_data_base">No recipe information stored</string>
+    <string name="recipe_error_unknown">We are experiencing problems please try again later</string>
+    <string name="recipe_error_retry">Retry</string>
+</resources>

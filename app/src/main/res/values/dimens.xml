@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="image_recipe_height">200dp</dimen>
+    <dimen name="image_recipe_detail_height">300dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_xsmall">2dp</dimen>
+</resources>
