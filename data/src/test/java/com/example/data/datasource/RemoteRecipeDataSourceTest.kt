@@ -60,7 +60,7 @@ class RemoteRecipeDataSourceTest {
             //When
             val result = remoteRecipeDataSource.getRecipes()
 
-            //Verify
+            //Then
             assert(result is Either.Right)
             Assert.assertEquals((result as Either.Right).value.first(), recipe)
         }

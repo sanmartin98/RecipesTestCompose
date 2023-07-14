@@ -9,6 +9,9 @@ import com.example.domain.model.Recipe
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+/**
+ * Test class [LocalRecipeDataSourceTest]
+ */
 class LocalRecipeDataSource(
     private val recipeDao: RecipeDao
 ) : ILocalRecipeDataSource {

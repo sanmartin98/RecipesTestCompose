@@ -34,3 +34,8 @@ La estructura del codigo en este repositorio contiene las siguientes herramienta
 - [Retrofit](https://square.github.io/retrofit/)
 - [Room](https://developer.android.com/training/data-storage/room?hl=es-419)
 
+### Tests
+Se realizaron tests unitarios en todos los modulos, testeando todos los casos de exito y diferentes
+escenarios de error, validando asi que todas las funciones que se usan durante todo el flujo de cada feature 
+funcionen correctamente.
+

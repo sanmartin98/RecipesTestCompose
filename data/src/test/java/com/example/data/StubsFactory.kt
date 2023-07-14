@@ -1,5 +1,6 @@
 package com.example.data
 
+import com.example.data.local.model.RecipeEntity
 import com.example.data.remote.response.LocationResponseDTO
 import com.example.data.remote.response.RecipeDetailResponseDto
 import com.example.data.remote.response.RecipeResponseDto
@@ -49,4 +50,11 @@ fun createLocation() = LocationRecipe(
     lat = "41.902782",
     lng = "12.496366",
     locationName = "Rome"
+)
+
+fun createRecipeEntity() = RecipeEntity(
+    id = "1",
+    name = "Lasagna",
+    urlImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyuBYhIQBWTVv3n97oaSZdxFlmXrTdVls_TMD0UMSqffUdPc-W26mNimFqQmiOjKHfspI&usqp=CAU",
+    ingredients = listOf("meat, cheese")
 )

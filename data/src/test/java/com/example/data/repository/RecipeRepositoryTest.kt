@@ -4,7 +4,9 @@ import com.example.common.Either
 import com.example.common.ErrorEntity
 import com.example.data.createRecipe
 import com.example.data.createRecipeDetail
+import com.example.data.datasource.local.LocalRecipeDataSource
 import com.example.data.datasource.remote.RemoteRecipeDataSource
+import com.example.data.network.NetworkManager
 import io.mockk.MockKAnnotations
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
@@ -25,12 +27,22 @@ class RecipeRepositoryTest {
     @MockK
     private lateinit var remoteRecipeDataSource: RemoteRecipeDataSource
 
+    @MockK
+    private lateinit var localRecipeDataSource: LocalRecipeDataSource
+
+    @MockK
+    private lateinit var networkManager: NetworkManager
+
     private lateinit var recipeRepository: RecipeRepository
 
     @Before
     fun setUp() {
         MockKAnnotations.init(this, relaxUnitFun = true)
-        recipeRepository = RecipeRepository(remoteRecipeDataSource)
+        recipeRepository = RecipeRepository(
+            remoteRecipeDataSource,
+            localRecipeDataSource,
+            networkManager
+        )
     }
 
     @After
@@ -43,6 +55,24 @@ class RecipeRepositoryTest {
             val recipeList = listOf(createRecipe())
 
             coEvery { remoteRecipeDataSource.getRecipes() } answers { Either.Right(recipeList) }
+            coEvery { networkManager.isConnected() } answers { true }
+
+            //When
+            val result = recipeRepository.getRecipes()
+
+            //Then
+            assert(result is Either.Right)
+            Assert.assertEquals((result as Either.Right).value, recipeList)
+        }
+
+    @Test
+    fun `Given a call to getRecipes When the user has internet issues but has info in the data base Then it gives us a List of Recipe model`() =
+        runTest {
+            //Given
+            val recipeList = listOf(createRecipe())
+
+            coEvery { localRecipeDataSource.getRecipes() } answers { Either.Right(recipeList) }
+            coEvery { networkManager.isConnected() } answers { false }
 
             //When
             val result = recipeRepository.getRecipes()
@@ -59,6 +89,7 @@ class RecipeRepositoryTest {
             val internetError = ErrorEntity.NetworkError(102)
 
             coEvery { remoteRecipeDataSource.getRecipes() } answers { Either.Left(internetError) }
+            coEvery { networkManager.isConnected() } answers { true }
 
             //When
             val result = recipeRepository.getRecipes()
@@ -76,6 +107,7 @@ class RecipeRepositoryTest {
             val emptyError = ErrorEntity.EmptyResponseError
 
             coEvery { remoteRecipeDataSource.getRecipes() } answers { Either.Left(emptyError) }
+            coEvery { networkManager.isConnected() } answers { true }
 
             //When
             val result = recipeRepository.getRecipes()
