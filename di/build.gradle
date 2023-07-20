@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.di'
+    namespace 'com.recipe.di'
     compileSdk 33
 
     defaultConfig {

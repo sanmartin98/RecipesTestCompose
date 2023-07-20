@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.recipestest'
+    namespace 'com.recipe.recipestest'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.recipestest"
+        applicationId "com.recipe.recipestest"
         minSdk 24
         targetSdk 33
         versionCode 1
